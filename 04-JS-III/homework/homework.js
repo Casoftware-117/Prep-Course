@@ -56,13 +56,14 @@ function dePalabrasAFrase(palabras) {
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
 
-  var cadena = '';
+  // var cadena = '';
+  // palabras.forEach(element => {
+  //   cadena = cadena +' '+element;
+  // });
 
-  palabras.forEach(element => {
-    cadena = cadena + ' '+element;
-  });
+  // return (cadena.trim());
 
-  return trim(cadena);
+  return palabras.join(' ');
 }
 
 
@@ -80,9 +81,15 @@ function agregarNumeros(numeros) {
   // Suma todos los enteros y devuelve el valor
   // Tu código:
 
-  var suma = 0;
-  numeros.forEach(e=>{
-    suma+=e;
+  // var suma = 0;
+  // numeros.forEach(e=>{
+  //   suma+=e;
+  // });
+
+  // return suma;
+
+  const suma = numeros.reduce((acumulador, elemento)=>{
+    return acumulador + elemento
   });
 
   return suma;
@@ -122,8 +129,21 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
-
-  return 0;
+  if (arguments.length>0)
+  { 
+    const arr= Array.from(arguments);
+    const multi = arr.reduce((acumulador, elemento)=>{
+      return acumulador * elemento;
+    });
+    return multi;
+  }
+  else if(arguments===1){
+    return arguments
+  }
+  else { 
+    return 0;
+  }
+ 
 }
 
 
@@ -136,7 +156,6 @@ function cuentoElementos(arreglo){
   });
 
   return contador;
-
 }
 
 
@@ -146,12 +165,13 @@ function diaDeLaSemana(numeroDeDia) {
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
 
-  switch (numeroDeDia) {
-    case 7:
-    case 1: return 'Es fin de semana';
-    default: return 'Es dia Laboral';      
-  }
-  
+  // switch (numeroDeDia) {
+  //   case 7:
+  //   case 1: return 'Es fin de semana';
+  //   default: return 'Es dia Laboral';      
+  // }
+
+  return (numeroDeDia===7 || numeroDeDia===1) ? 'Es fin de semana' : 'Es dia Laboral';  
 } 
 
 
@@ -159,15 +179,21 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  
+  const str=n.toString();
+  return (str[0]==='9') ? true : false;  
 }
 
 
 function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
-  //Escribe tu código aquí  
-  
+  //Escribe tu código aquí    
+  var valor=arreglo[0];
+
+  for (let index = 0; index < arreglo.length; index++) {
+    if (arreglo[index]!==valor) return false;
+  }
+  return true;
 } 
 
 
@@ -176,6 +202,21 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  var mesesPedidos = [];
+
+  array.forEach(e=>{
+      switch (e) {
+        case "Enero": 
+        case "Marzo": 
+        case "Noviembre": 
+          mesesPedidos.push(e);          
+          break;      
+        default:
+          break;
+      }
+  });
+
+  return (mesesPedidos.length===3) ? mesesPedidos : 'No se encontraron los meses pedidos';
 }
 
 
@@ -201,7 +242,7 @@ function breakStatement(numero) {
   for (let index = 0; index < 10; index++) {
      suma = suma+2;
      a.push(suma);
-     if (suma==index) {
+     if (suma===index) {
       a ='Se interrumpió la ejecución';
       break;      
      }    
@@ -219,6 +260,18 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+
+  var a=[];
+  var suma=numero;
+  for (let index = 0; index < 10; index++) {
+    
+    if (index===5) {continue;}
+
+     suma = suma+2;   
+     a.push(suma);
+  }
+
+  return a;
 }
 
 

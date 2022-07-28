@@ -119,21 +119,24 @@ function esPar(num) {
   // Devuelve "true" si "num" es par
   // De lo contrario, devuelve "false"
   // Tu código:
-  const resto = num % 2;
-  if (resto==0) return true;
 
-  return false;
+  // const resto = num % 2;
+  // if (resto===0) return true;
+  // return false;
+
+  //otra forma
+  return (num%2===0) ? true: false;
 }
 
 function esImpar(num) {
   // Devuelve "true" si "num" es impar
   // De lo contrario, devuelve "false"
   // Tu código:
-  const resto = num % 2;
-  if (resto==1) return true;
+  // const resto = num % 2;
+  // if (resto==1) return true;
+  // return false;
 
-  return false;
-  
+  return (num%2===1) ? true: false;  
 }
 
 function elevarAlCuadrado(num) {
@@ -170,7 +173,7 @@ function redondearHaciaArriba(num) {
 function numeroRandom() {
   //Generar un número al azar entre 0 y 1 y devolverlo
   //Pista: investigá qué hace el método Math.random()
-  return Math.round(Math.random());
+  return Math.random();
 }
 
 function esPositivo(numero) {

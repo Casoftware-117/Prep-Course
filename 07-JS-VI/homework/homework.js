@@ -7,7 +7,6 @@ function mayuscula(nombre) {
   var mayus = nombre[0].toUpperCase();
   var letras = nombre.slice(1);
   return mayus+letras;
-
 }
 
 function invocarCallback(cb) {
