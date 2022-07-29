@@ -10,7 +10,20 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
-  let arr = Object.entries(objeto);
+  //let arr = Object.entries(objeto); 1ra forma
+
+  //   let arr=[];
+  // objeto.map((key, value)=>{
+  //   arr.push([key,value]);
+  // });
+
+   let arr=[];
+  Object.entries(objeto).forEach(([key, value])=>{
+     arr.push([key,value]);
+   }  
+  );
+
+
   return arr;
 
 }
@@ -22,17 +35,22 @@ function numberOfCharacters(string) {
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
 
-  let objeto={};
 
-  for (let index = 0; index < string.length; index++) {
-    const nmKey = string[index];
-    if (objeto[nmKey])
-    {
-      objeto[nmKey]++;    
-    }
-    else{
-      objeto[nmKey]=1
-    }    
+  // for (let index = 0; index < string.length; index++) {
+  //   const nmKey = string[index];
+  //   if (objeto[nmKey])
+  //   {
+  //     objeto[nmKey]++;    
+  //   }
+  //   else{
+  //     objeto[nmKey]=1
+  //   }    
+  // }
+
+  let objeto={};
+  for (let index = 0; index < string.length; index++) {   
+    const nameK = string[index];
+    (objeto[nameK]) ? objeto[nameK]++ : objeto[nameK]=1;    
   }
 
   return objeto;
@@ -77,7 +95,7 @@ function asAmirror(str) {
     for (let i = palabra.length-1; i>=0; i--) {
       invertido = invertido + palabra[i]      
     }
-    espejo = espejo+ ' '+invertido;    
+    espejo = espejo+' '+invertido;    
   }
 
   return espejo.trim();
@@ -93,8 +111,6 @@ function capicua(numero){
 
   const numStr = numero.toString();
   let numInvertido='';
-
-  const comparar = numStr[0];
 
   for (let index = numStr.length-1; index >=0 ; index--) {
       numInvertido=numInvertido+numStr[index];
@@ -124,6 +140,7 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí  
+ 
   for (let index = 0; index<arr.length-1; index++) {       
     for (let x = index+1; x < arr.length; x++) {
       let temp="";
@@ -135,7 +152,14 @@ function sortArray(arr) {
     }     
   }
 
-  return arr;  
+  return arr;
+
+  
+
+  // return arr.sort(function(a,b){
+  //   return a.length - b.length;
+  // })
+
 }
 
 
@@ -172,7 +196,8 @@ function buscoInterseccion(arreglo1, arreglo2){
     return arr;
   }
 
-  return Aordenado(arrNew);
+  //return Aordenado(arrNew);
+  return arrNew;
 }
 
 

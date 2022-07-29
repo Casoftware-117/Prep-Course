@@ -41,6 +41,10 @@ archivo en cualquiera de estas carpetas, estás en el lugar equivocado.
     top: 0;
 }
 
+/* Ejercicio 5 y 6: */
+
+/* Acá va tu código */
+
 #ejercicioCinco{
     display: flex;
     flex-direction: row-reverse;
@@ -48,6 +52,8 @@ archivo en cualquiera de estas carpetas, estás en el lugar equivocado.
     align-items: center;
     
 }
+
+/* Ejercicio 6. */
 #ejercicioSiete{
     align-items:center;
     flex-direction: row-reverse;
@@ -73,10 +79,8 @@ archivo en cualquiera de estas carpetas, estás en el lugar equivocado.
 
 
 
-/* Ejercicio 5: */
-
-/* Acá va tu código */
 
 
 
-/* Ejercicio 6. */
+
+
